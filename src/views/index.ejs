@@ -1,0 +1,39 @@
+﻿<h2>Listado de Artículos</h2> 
+
+<table class="articles-table">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% (articulos || []).forEach(a => { %>
+            <tr>
+                <td>
+                    <% if (a.foto) { %>
+                        <img src="/uploads/<%= a.foto %>" alt="foto" class="thumb"> 
+                    <% } else { %>
+                        <span style="color: #999;">(sin foto)</span>
+                    <% } %>
+                </td>
+                <td><%= a.codigo %></td>
+                <td><%= a.nombre %></td>
+                <td><%= a.descripcion %></td>
+                <td><%= a.cantidad %></td>
+                <td>$<%= a.precio %></td>
+                <td>
+                    <a href="/articulos/<%= a._id %>/edit" class="btn edit">Editar</a> 
+                    <form action="/articulos/<%= a._id %>?_method=DELETE" method="POST" style="display:inline">
+                        <button type="submit" onclick="return confirm('¿Desea eliminar este artículo?')" class="btn delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

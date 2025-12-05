@@ -1,0 +1,13 @@
+﻿<%- include('header') %>
+
+<h2><%= articulo.name || articulo.nombre %></h2>
+<p><strong>Código:</strong> <%= articulo.code || articulo.codigo %></p>
+<% if(articulo.photo || articulo.foto) { %>
+  <img src="<%= articulo.photo ? articulo.photo : '/public/uploads/' + articulo.foto %>" width="200" /><br/>
+<% } %>
+<p><%= articulo.description %></p>
+<p><strong>Cantidad:</strong> <%= articulo.quantity %></p>
+<p><strong>Precio:</strong> $<%= (articulo.price != null ? articulo.price : articulo.precio).toFixed(2) %></p>
+<a href="/articulos">Volver</a> | <a href="/articulos/<%= articulo._id %>/edit">Editar</a>
+
+<%- include('footer') %>

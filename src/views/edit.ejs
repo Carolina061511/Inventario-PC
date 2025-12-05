@@ -1,0 +1,34 @@
+﻿<%- include('header') %>
+
+<h2>Editar artículo</h2>
+
+<form action="/articulos/<%= articulo._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <label>Código</label><br/>
+  <input name="code" required value="<%= articulo.code || articulo.codigo %>" /><br/>
+
+  <label>Nombre</label><br/>
+  <input name="name" required value="<%= articulo.name || articulo.nombre %>" /><br/>
+
+  <label>Foto actual</label><br/>
+  <% if(articulo.photo || articulo.foto) { %>
+    <img src="<%= articulo.photo ? articulo.photo : '/public/uploads/' + articulo.foto %>" width="100" /><br/>
+  <% } else { %>
+    (sin foto)<br/>
+  <% } %>
+
+  <label>Cambiar foto</label><br/>
+  <input type="file" name="photo" accept="image/*" /><br/>
+
+  <label>Descripción</label><br/>
+  <textarea name="description"><%= articulo.description %></textarea><br/>
+
+  <label>Cantidad</label><br/>
+  <input type="number" name="quantity" min="0" value="<%= articulo.quantity %>" /><br/>
+
+  <label>Precio</label><br/>
+  <input type="number" name="price" step="0.01" value="<%= articulo.price %>" required /><br/><br/>
+
+  <button type="submit">Guardar cambios</button>
+</form>
+
+<%- include('footer') %>

@@ -1,0 +1,170 @@
+﻿/* 1. Reset Básico y Estructura Principal */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente legible */
+    background-color: #f4f7f6; /* Fondo gris claro */
+    color: #333; /* Color de texto principal */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos de Header y Navegación (tomados de la versión anterior) */
+header {
+    background-color: #007bff; /* Azul fuerte para la cabecera */
+    color: white;
+    padding: 15px 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: white;
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.8em;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+header nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor principal para el contenido */
+main {
+    flex-grow: 1; 
+    width: 90%;
+    max-width: 1200px; /* Limitar el ancho en pantallas grandes */
+    margin: 40px auto; 
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco para el contenido */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+h2 {
+    color: #555;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Estilos de Botones de Cabecera/Acción */
+.buttons {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none; /* Quitar el subrayado */
+    display: inline-block;
+    margin-right: 5px;
+    transition: background-color 0.2s, transform 0.1s;
+    font-weight: bold;
+}
+
+/* Botón/Enlace de Agregar Artículo (Estilo Verde) */
+.btn-add, a[href="/articulos/new"].btn {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.btn-add:hover, a[href="/articulos/new"].btn:hover {
+    background-color: #218838;
+}
+
+/* 2. Estilo de la Tabla (usando .articles-table) */
+.articles-table {
+    width: 100%;
+    border-collapse: collapse; /* Eliminar el espacio entre celdas */
+    margin-top: 20px;
+}
+
+.articles-table thead th {
+    background-color: #6c757d; /* Gris oscuro para el encabezado */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 3px solid #5a6268;
+}
+
+.articles-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Línea separadora sutil */
+    transition: background-color 0.3s ease;
+}
+
+.articles-table tbody tr:nth-child(even) { /* Fondo alternado */
+    background-color: #f8f9fa;
+}
+
+.articles-table tbody tr:hover {
+    background-color: #e9ecef; /* Resaltar la fila al pasar el ratón */
+}
+
+.articles-table tbody td {
+    padding: 12px 15px;
+    vertical-align: middle; /* Centrar el contenido verticalmente */
+}
+
+/* 3. Estilo de las Imágenes (usando .thumb) */
+.articles-table .thumb {
+    width: 70px; /* Tamaño de thumbnail */
+    height: auto;
+    border-radius: 4px; /* Bordes suaves */
+    object-fit: contain;
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+/* 4. Estilo de Botones de Acción de Fila */
+
+/* Botón/Enlace de Editar (clase 'edit') */
+.articles-table .btn.edit {
+    background-color: #ffc107; /* Amarillo */
+    color: #333;
+    padding: 6px 10px;
+}
+
+.articles-table .btn.edit:hover {
+    background-color: #e0a800;
+}
+
+/* Botón de Eliminar (clase 'delete') */
+.articles-table .btn.delete {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    padding: 6px 10px;
+}
+
+.articles-table .btn.delete:hover {
+    background-color: #c82333;
+}
+
+/* 5. Estilo del Footer */
+footer {
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    color: #6c757d;
+    font-size: 0.9em;
+    background-color: #fff;
+    margin-top: auto;
+}

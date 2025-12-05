@@ -1,0 +1,47 @@
+<div class="form-container">
+    <h2><%= accion %> Artículo</h2>
+
+    <form action="<%= action %>" method="POST" enctype="multipart/form-data" class="article-form">
+        
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" value="<%= articulo ? articulo.codigo : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="<%= articulo ? articulo.nombre : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4"><%= articulo && articulo.descripcion ? articulo.descripcion : '' %></textarea>
+        </div>
+
+        <div class="form-group half-width">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="<%= articulo ? articulo.cantidad : '' %>" required min="0">
+        </div>
+
+        <div class="form-group half-width">
+            <label for="precio">Precio ($):</label>
+            <input type="number" id="precio" name="precio" value="<%= articulo ? articulo.precio : '' %>" required step="0.01" min="0">
+        </div>
+
+        <div class="form-group">
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+            <% if(articulo && articulo.foto) { %>
+                <div class="current-photo">
+                    <p>Foto actual:</p>
+                    <img src="/uploads/<%= articulo.foto %>" alt="Foto actual del artículo" class="form-thumb">
+                </div>
+            <% } %>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-submit"><%= accion %></button>
+            <a href="/articulos" class="btn btn-cancel">Cancelar</a>
+        </div>
+    </form>
+</div>

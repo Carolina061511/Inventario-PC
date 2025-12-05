@@ -1,0 +1,27 @@
+﻿<%- include('header') %>
+
+<h2>Nuevo artículo</h2>
+
+<form action="/articulos" method="POST" enctype="multipart/form-data">
+  <label>Código</label><br/>
+  <input name="code" required /><br/>
+
+  <label>Nombre</label><br/>
+  <input name="name" required /><br/>
+
+  <label>Foto</label><br/>
+  <input type="file" name="photo" accept="image/*" /><br/>
+
+  <label>Descripción</label><br/>
+  <textarea name="description"></textarea><br/>
+
+  <label>Cantidad</label><br/>
+  <input type="number" name="quantity" min="0" value="0" /><br/>
+
+  <label>Precio</label><br/>
+  <input type="number" name="price" step="0.01" required /><br/><br/>
+
+  <button type="submit">Crear</button>
+</form>
+
+<%- include('footer') %>
